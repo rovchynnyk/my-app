@@ -26,11 +26,11 @@ const CarItem = ({
 	return (
 		<li className='CarItem-container'>
 			<span className='CarItem-img-container'>
-				{/* <img 
+				<img 
 					alt={modelName} 
 					className='CarItem-img'
 					src={pictureUrl} 
-				/> */}
+				/>
 			</span>
 
 			<section className='CarItem-description'>

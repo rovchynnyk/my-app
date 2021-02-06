@@ -34,7 +34,10 @@
   height: 92px;
   width: 116px;
   background-color: var(--light-gray);
-  margin-right: 24px
+  margin-right: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .CarItem-img {

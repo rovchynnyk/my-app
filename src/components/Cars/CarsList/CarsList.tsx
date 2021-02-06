@@ -9,6 +9,8 @@ import { CarsContext } from '../../CarsContext';
 
 import './CarsList.css';
 
+const MAX_PAGE_ITEMS = 10;
+
 const CarsList = () => {
 	const { 
 		loading, 
@@ -17,7 +19,7 @@ const CarsList = () => {
 	 } = useContext(CarsContext);
 
 	const currentCount = useMemo(() => {
-		return (page - 1) * 10 + cars.length;
+		return (page - 1) * MAX_PAGE_ITEMS + cars.length;
 	}, [
 		page, cars,
 	]);

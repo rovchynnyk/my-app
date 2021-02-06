@@ -1,14 +1,18 @@
-import { useContext, useEffect, useState } from 'react';
+import { 
+	useCallback, useContext, useEffect, useState,
+ } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 import Button from '../../Button';
-import { capitalize, noop } from '../../../utils';
+import { capitalize } from '../../../utils';
 import { CarsContext } from '../../CarsContext';
 import { CarItemT } from '../CarItem/CarItem';
 import { API_HOST } from '../../../constants';
 
 import './CarDetail.css';
+
+const FAVOURITES = 'favourites';
 
 const CarDetail = () => {
 	const { id } = useParams<any>();
@@ -35,7 +39,16 @@ const CarDetail = () => {
 		setCar(savedCar as CarItemT);
 	}, [
 		id, cars,
-	]);
+	]);	
+
+	const saveToFavourites = useCallback(() => {
+		const savedItems = localStorage.getItem(FAVOURITES) ?? '[]';
+		
+		localStorage.setItem(FAVOURITES, JSON.stringify([
+			...JSON.parse(savedItems) ,
+			car,
+		]));
+	}, [car]);
 
 	if (!car) {
 		return null;
@@ -66,7 +79,7 @@ const CarDetail = () => {
 						If you like this car, click the button and save it in your collection of favourite items
 					</p>	
 
-					<Button onClick={noop}>
+					<Button onClick={saveToFavourites}>
 						Save
 					</Button>
 				</section>
