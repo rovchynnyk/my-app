@@ -1,0 +1,34 @@
+.NotFound-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex: 1;
+  padding: 24px;
+}
+
+.NotFount-title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+
+.NotFound-description {
+  font-size: 18px;
+  line-height: 2;
+}
+
+.NotFound-link {
+  color: var(--cta-color);
+  text-decoration: none;
+}
+
+.NotFound-link:hover, 
+.NotFound-link:focus {
+  color: var(--cta-color-pressed);
+  text-decoration: underline;
+}
+
+.NotFound-logo {
+  margin-bottom: 24px;
+}

@@ -1,0 +1,70 @@
+.CarSkeleton-container {
+  border: 1px solid var(--light-gray);
+  padding: 12px;
+  display: flex;
+}
+
+.CarSkeleton-container:not(:last-child) {
+  margin-bottom: 12px;
+}
+
+.CarSkeleton-image,
+.CarSkeleton-link,
+.CarSkeleton-name,
+.CarSkeleton-meta {
+  background-color: var(--light-gray);
+}
+
+.CarSkeleton-image {
+  height: 92px;
+  width: 116px;
+}
+
+.CarSkeleton-meta,
+.CarSkeleton-link {
+  height: 21px;
+}
+
+.CarSkeleton-meta,
+.CarSkeleton-name {
+  width: 240px;
+}
+
+.CarSkeleton-link {
+  width: 64px;
+}
+
+.CarSkeleton-meta {
+  margin-bottom: 12px;
+}
+
+.CarSkeleton-name {
+  height: 27px;
+  margin-bottom: 8px;
+}
+
+.CarSkeleton-container > section {
+  margin-left: 24px;
+}
+
+.Animate {
+  animation: kef-content-loader 3s infinite ease-in-out;
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+@keyframes kef-content-loader {
+  0% {
+    opacity: 0.9;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
+
+  100% {
+    opacity: 0.9;
+  }
+}

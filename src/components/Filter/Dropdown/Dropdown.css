@@ -1,0 +1,66 @@
+.Dropdown-container {
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.Dropdown-title {
+  margin-bottom: 8px;
+  display: block;
+}
+
+.List {
+  border: 1px solid var(--light-gray);
+  padding: 0;
+  width: 260px;
+  height: 114px;
+  overflow: scroll;
+  box-sizing: border-box;
+  position: absolute;
+  background-color: #fff;
+  z-index: 1;
+}
+
+.List-item {
+  padding: 8px;
+}
+
+.List-item:not(:last-child) {
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.List-item:hover,
+.List-item:focus {
+  background-color: var(--cta-color);
+  color: #fff;
+  cursor: pointer;
+}
+
+.List-title {
+  border: 1px solid var(--light-gray);
+  padding: 8px;
+  position: relative;
+  width: 260px;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+}
+
+.List-arrow,
+.List-arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid var(--light-gray);
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: 12px;
+}
+
+.List-arrow-down {
+  border-top: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid var(--light-gray);
+}

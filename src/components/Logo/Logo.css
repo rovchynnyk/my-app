@@ -1,0 +1,9 @@
+.Logo-container {
+  height: 32px;
+  display: block;
+}
+
+.Logo {
+  height: 100%;
+  outline: none;
+}

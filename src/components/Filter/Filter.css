@@ -1,0 +1,8 @@
+.Filter-container {
+  border: 1px solid var(--light-gray);
+  padding: 24px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  margin-right: 24px;
+}

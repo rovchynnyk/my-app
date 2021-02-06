@@ -1,0 +1,13 @@
+.Button {
+  background-color: var(--cta-color);
+  color: #fff;
+  padding: 8px 46px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  align-self: flex-end;
+}
+
+.Button:active {
+  background-color: var(--cta-color-pressed);
+}

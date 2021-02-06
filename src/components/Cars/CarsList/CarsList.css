@@ -1,0 +1,27 @@
+.CarList-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px;
+}
+
+.CarList-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.CarList-items {
+  flex: 1;
+}
+
+.CarList-amount {
+  margin-bottom: 24px;
+  display: block;
+  font-size: 18px;
+  display: inline-flex;
+}
+
+.CarList-amount-loading {
+  background-color: var(--light-gray);
+  color: transparent;
+}

@@ -1,0 +1,43 @@
+.CarDetail-container {
+  width: 800px;
+  margin: 0 auto;
+  display: flex;
+  padding: 24px;
+}
+
+.CarDetail-hero {
+  background-color: var(--light-gray);
+  background-size: cover;
+  height: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.CarDetail-description {
+  margin-right: 24px;
+}
+
+.CarDetail-title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+
+.CarDetail-dimensions {
+  font-size: 18px;
+  margin-bottom: 24px;
+}
+
+.CarDetail-save {
+  border: 1px solid var(--light-gray);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5;
+  height: fit-content;
+}
+
+.CarDetail-save > p {
+   margin-bottom: 8px;
+}

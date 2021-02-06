@@ -1,0 +1,28 @@
+.Header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 80px;
+	border-bottom: 1px solid var(--light-gray);
+	padding: 24px;
+	box-sizing: border-box;
+}
+
+.Header-menu {
+	display: flex;
+}
+
+.Header-menu-item > a {
+	color: var(--main-color);
+	text-decoration: none;
+}
+
+.Header-menu-item {
+	padding: 0 12px;
+	font-size: 18px;
+}
+
+.Header-menu-item:hover,
+.Header-menu-item:focus {
+	text-decoration: underline;
+}
