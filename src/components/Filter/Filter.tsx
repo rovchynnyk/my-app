@@ -19,7 +19,7 @@ const Filter = () => {
 
 	const [
 		items, setItems,
-	] = useState<any>({ // todo fix any type
+	] = useState({
 		colors: [],
 		manufacturers: [],
 	});

@@ -12,8 +12,12 @@ import { API_HOST, FAVOURITES } from '../../../constants';
 
 import './CarDetail.css';
 
+type ParamsT = {
+	[key: string]: string,
+};
+
 const CarDetail = () => {
-	const { id } = useParams<any>();
+	const { id } = useParams<ParamsT>();
 
 	const { carsData: { cars } } = useContext(CarsContext);
 

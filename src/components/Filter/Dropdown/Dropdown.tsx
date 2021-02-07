@@ -11,7 +11,7 @@ type PropsT = {
   title: string, 
   initialValue:string,
   onItemClick: (itemTitle: string, dropdownTitle: string) => void,
-  items: [],
+  items: string[],
 }
 
 const Dropdown = ({ 
