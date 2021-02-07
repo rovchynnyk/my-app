@@ -1,7 +1,7 @@
 import { useContext, useMemo } from 'react';
 import cn from 'classnames';
 
-import Filter from '../../Filter/Filter';
+import Filter from '../../Filter';
 import Pagination from '../../Pagination';
 import CarSkeleton from '../CarSkeleton';
 import CarItem from '../CarItem';
