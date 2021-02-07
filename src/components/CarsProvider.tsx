@@ -1,4 +1,7 @@
-import { useState, ReactNode, useMemo } from 'react';
+import { 
+  useState, useEffect, ReactNode, useMemo,
+ } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import { CarsDataT } from './Cars/types';
 import { Provider } from './CarsContext';
@@ -9,6 +12,8 @@ type PropsT = {
 };
 
 const CarsProvider = ({ children }: PropsT) => {
+  const history = useHistory();
+  
 	const [
 		filters, setFilters,
 	] = useState<FiltersT>({
@@ -31,6 +36,14 @@ const CarsProvider = ({ children }: PropsT) => {
   const [
     page, setPage,
   ] = useState(1);
+
+  useEffect(() => {
+    const unlisten = history.listen(() => {
+      setPage(1);
+    });
+
+    return unlisten;
+  }, [history]);
 
   const providerValues = useMemo(() => {
     return {
