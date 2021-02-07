@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import { Link } from 'react-router-dom';
 
 import CarItem from "../CarItem";
 import { CarItemT } from "../CarItem/CarItem";
@@ -23,7 +24,12 @@ const Favourites = () => {
             {...car} 
           />
         );
-      }) : 'No saved items'}
+      }) : (
+        <p className='Favourites-description'>
+          No saved items. <br/>
+          You can always go back to the <Link to='/' className='NotFound-link'>homepage</Link>.
+        </p>
+      )}
     </div>
   );
 };
