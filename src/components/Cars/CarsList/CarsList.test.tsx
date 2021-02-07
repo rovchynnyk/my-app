@@ -10,7 +10,7 @@ import CarsList from './CarsList';
 const mockContextData = (data: {
   loading: boolean,
   page: number,
-  carsData: CarsDataT | null,
+  carsData: CarsDataT,
 }) => {
   jest.spyOn(React, 'useContext').mockImplementation(() => {
     return data;
@@ -76,10 +76,16 @@ describe('CarsList', () => {
     mockContextData({
       loading: true,
       page: 2,
-      carsData: null,
+      carsData: {
+        cars: [],
+        totalCarsCount: 0,
+        totalPageCount: 0,
+      },
     });
 
-    expect(container?.querySelector('ul')).toBeFalsy();
+    render(<CarsList />, container);
+
+    expect(container?.querySelector('.CarSkeleton-container')).toBeTruthy();
   })
 
 });
