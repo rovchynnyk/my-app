@@ -8,11 +8,9 @@ import Button from '../../Button';
 import { capitalize } from '../../../utils';
 import { CarsContext } from '../../CarsContext';
 import { CarItemT } from '../CarItem/CarItem';
-import { API_HOST } from '../../../constants';
+import { API_HOST, FAVOURITES } from '../../../constants';
 
 import './CarDetail.css';
-
-const FAVOURITES = 'favourites';
 
 const CarDetail = () => {
 	const { id } = useParams<any>();

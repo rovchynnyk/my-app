@@ -1,5 +1,6 @@
-import { useMemo } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
+import { FAVOURITES } from "../../../constants";
 
 import CarItem from "../CarItem";
 import { CarItemT } from "../CarItem/CarItem";
@@ -7,9 +8,25 @@ import { CarItemT } from "../CarItem/CarItem";
 import './Favourites.css';
 
 const Favourites = () => {
-  const cars = useMemo(() => {
-    return JSON.parse(localStorage.getItem('favourites') ?? '{}');
+  const [
+    cars, setCars,
+  ] = useState([]);
+
+  useEffect(() => {
+    const items = JSON.parse(localStorage.getItem(FAVOURITES) ?? '[]');
+
+    setCars(items);
   }, []);
+
+  const removeItem = useCallback((id) => {
+    const filteredItems = cars.filter((item: CarItemT) => {
+      return item.stockNumber !== id;
+    })
+
+    localStorage.setItem(FAVOURITES, JSON.stringify(filteredItems));
+
+    setCars(filteredItems);
+  }, [cars]);
 
   return (
     <div className='Favourites-container'>
@@ -19,10 +36,18 @@ const Favourites = () => {
 
       {cars.length > 0 ? cars.map((car: JSX.IntrinsicAttributes & CarItemT) => {
         return (
-          <CarItem 
-            key={car.stockNumber} 
-            {...car} 
-          />
+          <div 
+            className='Favourites-item-wrapper' 
+            key={car.stockNumber}
+          >
+            <CarItem {...car} />
+            <span 
+              className='Favourites-remove-lnk'
+              onClick={removeItem.bind(null, car.stockNumber)}
+            >
+              Remove
+            </span>
+          </div>
         );
       }) : (
         <p className='Favourites-description'>

@@ -1,4 +1,4 @@
-type CarItemT = {
+export type CarItemT = {
 	color: string,
 	fuelType: 'Diesel' | 'Petrol'
 	manufacturerName: string,
