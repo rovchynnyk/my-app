@@ -16,7 +16,7 @@ type ContextPropsT = {
   setCarsData: (items: CarsDataT) => void,
   carsData: CarsDataT,
   page: number,
-  setPage: (payload: { type: string }) => void
+  setPage: (page: number) => void
 }
 
 export const CarsContext = createContext<ContextPropsT>({

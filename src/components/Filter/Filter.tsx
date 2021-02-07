@@ -6,7 +6,7 @@ import axios from 'axios';
 
 import Button from '../Button';
 import useFetchCars from '../useFetchCars';
-import { API_HOST, FIRST_PAGE } from '../../constants';
+import { API_HOST } from '../../constants';
 import { CarsContext } from '../CarsContext';
 
 import Dropdown from './Dropdown';
@@ -51,7 +51,7 @@ const Filter = () => {
 		const { color, manufacturer } = filters;
 
 		onCarFetch({ color, manufacturer })
-		setPage({ type: FIRST_PAGE });
+		setPage(1);
 	}, [
 		filters, onCarFetch, setPage,
 	]);

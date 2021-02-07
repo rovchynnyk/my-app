@@ -1,8 +1,4 @@
-import { useState, useReducer, ReactNode, useMemo } from 'react';
-
-import { 
-  NEXT_PAGE, PREVIOUS_PAGE, LAST_PAGE, FIRST_PAGE,
- } from '../constants';
+import { useState, ReactNode, useMemo } from 'react';
 
 import { CarsDataT } from './Cars/types';
 import { Provider } from './CarsContext';
@@ -11,23 +7,6 @@ import { FiltersT } from './CarsContext';
 type PropsT = {
   children: ReactNode,
 };
-
-const reducer = (state: { page: number }, action: { type: string }) => {
-  switch (action.type) {
-    case FIRST_PAGE: 
-      return { page: 1 };
-    case NEXT_PAGE:
-      return { page: state.page + 1};
-    case PREVIOUS_PAGE:
-      return { page: state.page - 1 };
-    case LAST_PAGE: 
-      return { page: 10 };
-    default:
-      return { page: 1 };
-  }
-}
-
-const initialState = { page: 1 }
 
 const CarsProvider = ({ children }: PropsT) => {
 	const [
@@ -50,8 +29,8 @@ const CarsProvider = ({ children }: PropsT) => {
   });
 
   const [
-    { page }, setPage,
-  ] = useReducer(reducer, initialState);
+    page, setPage,
+  ] = useState(1);
 
   const providerValues = useMemo(() => {
     return {

@@ -2,9 +2,6 @@ import { useCallback, useContext, useEffect } from 'react';
 
 import useFetchCars from '../useFetchCars';
 import { CarsContext } from '../CarsContext';
-import { 
-  NEXT_PAGE, PREVIOUS_PAGE, LAST_PAGE, FIRST_PAGE,
- } from '../../constants';
 
 import './Pagination.css';
 
@@ -17,19 +14,27 @@ const Pagination = () => {
     carsData: { totalPageCount },
    } = useContext(CarsContext);
 
-  const onPageChange = useCallback((param) => {
-    return () => {
-      setPage(param);
-    }
-  }, [setPage]);
-
   const onCarFetch = useFetchCars();
 
   useEffect(() => {
     onCarFetch({ page, ...filters });
-  }, [
+  }, [ // eslint-disable-line react-hooks/exhaustive-deps
     page, onCarFetch,
   ]);    
+  
+  const handleNextPage = useCallback(() => {
+    const nextPage = page + 1;
+    setPage(nextPage)
+  }, [
+    page, setPage,
+  ])
+
+  const handlePreviousPage = useCallback(() => {
+    const prevPage = page - 1;
+    setPage(prevPage)
+  }, [
+    page, setPage,
+  ])
 
   if (loading || totalPageCount === 1) {
     return null;
@@ -41,13 +46,13 @@ const Pagination = () => {
         <>
           <li 
             className='Pagination-сontainer-item' 
-            onClick={onPageChange({ type: FIRST_PAGE })}
+            onClick={setPage.bind(null, 1)}
           >
             First
           </li>
           <li 
             className='Pagination-сontainer-item'
-            onClick={onPageChange({ type: PREVIOUS_PAGE })}
+            onClick={handlePreviousPage}
           >
             Previous
           </li>
@@ -60,13 +65,13 @@ const Pagination = () => {
         <>
           <li 
             className='Pagination-сontainer-item' 
-            onClick={onPageChange({ type: NEXT_PAGE })}
+            onClick={handleNextPage}
           >
             Next
           </li>
           <li 
             className='Pagination-сontainer-item' 
-            onClick={onPageChange({ type: LAST_PAGE })}
+            onClick={setPage.bind(null, totalPageCount)}
           >
             Last
           </li>
