@@ -22,15 +22,15 @@ type ContextPropsT = {
 export const CarsContext = createContext<ContextPropsT>({
   loading: false,
   filters: {
-		color: '',
-		manufacturer: '',
-	},
+    color: '',
+    manufacturer: '',
+  },
   setLoading: noop,
   setFilters: noop,
   carsData: {
     cars: [],
-    totalCarsCount: 0, 
-	  totalPageCount: 0, 
+    totalCarsCount: 0,
+    totalPageCount: 0,
   },
   setCarsData: noop,
   page: 1,

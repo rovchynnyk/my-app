@@ -12,12 +12,12 @@ type PropsT = {
 const CarsProvider = ({ children }: PropsT) => {
   const history = useHistory();
 
-	const [
-		filters, setFilters,
-	] = useState<FiltersT>({
-		color: '',
-		manufacturer: '',
-	});
+  const [
+    filters, setFilters,
+  ] = useState<FiltersT>({
+    color: '',
+    manufacturer: '',
+  });
 
   const [
     loading, setLoading,
@@ -28,7 +28,7 @@ const CarsProvider = ({ children }: PropsT) => {
   ] = useState<CarsDataT>({
     cars: [],
     totalCarsCount: 0,
-	  totalPageCount: 0,
+    totalPageCount: 0,
   });
 
   const [

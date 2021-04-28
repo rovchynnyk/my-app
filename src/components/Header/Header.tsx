@@ -15,11 +15,11 @@ const Header = () => {
 				<li className='Header-menu-item'>
 					<Link to='/purchase'>Purchase</Link>
 				</li>
-				
+
 				<li className='Header-menu-item'>
 					<Link to='/orders'>My Orders</Link>
 				</li>
-				
+
 				<li className='Header-menu-item'>
 					<Link to='/sell'>Sell</Link>
 				</li>

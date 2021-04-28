@@ -12,11 +12,11 @@ import './CarsList.css';
 const MAX_PAGE_ITEMS = 10;
 
 const CarsList = () => {
-	const { 
-		loading, 
+	const {
+		loading,
 		page,
 		carsData: { cars, totalCarsCount },
-	 } = useContext(CarsContext);
+	} = useContext(CarsContext);
 
 	const currentCount = useMemo(() => {
 		return (page - 1) * MAX_PAGE_ITEMS + cars.length;
@@ -27,13 +27,13 @@ const CarsList = () => {
 	return (
 		<div className='CarList-container'>
 			<Filter />
-			
+
 			<div className='CarList-items'>
 				<h3 className='CarList-title'>
 					Available Cars
 				</h3>
 
-				<span 
+				<span
 					className={cn('CarList-amount', {'CarList-amount-loading': loading })}
 				>
 					Showing {currentCount} of {totalCarsCount > 100 ? 100 : totalCarsCount} results

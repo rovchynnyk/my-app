@@ -1,8 +1,8 @@
-import { 
+import {
   BrowserRouter as Router,
   Switch,
   Route,
- } from "react-router-dom";
+} from "react-router-dom";
 
 import Header from './components/Header';
 import CarsList from './components/Cars/CarsList';
@@ -21,15 +21,15 @@ function App() {
       <CarsProvider>
         <div className='App-layout'>
           <Switch>
-            <Route 
-              exact 
-              component={CarsList} 
-              path='/' 
+            <Route
+              exact
+              component={CarsList}
+              path='/'
             />
 
-            <Route 
-              component={CarDetail} 
-              path='/detail/:id' 
+            <Route
+              component={CarDetail}
+              path='/detail/:id'
             />
 
             <Route
@@ -37,9 +37,9 @@ function App() {
               path='/favourites'
             />
 
-            <Route 
-              component={NotFound} 
-              path='*' 
+            <Route
+              component={NotFound}
+              path='*'
             />
           </Switch>
         </div>
