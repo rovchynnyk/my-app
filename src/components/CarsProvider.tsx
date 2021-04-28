@@ -1,6 +1,4 @@
-import { 
-  useState, useEffect, ReactNode, useMemo,
- } from 'react';
+import { useState, useEffect, ReactNode } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { CarsDataT } from './Cars/types';
@@ -13,14 +11,14 @@ type PropsT = {
 
 const CarsProvider = ({ children }: PropsT) => {
   const history = useHistory();
-  
+
 	const [
 		filters, setFilters,
 	] = useState<FiltersT>({
 		color: '',
 		manufacturer: '',
 	});
-  
+
   const [
     loading, setLoading,
   ] = useState<boolean>(false);
@@ -29,8 +27,8 @@ const CarsProvider = ({ children }: PropsT) => {
     carsData, setCarsData,
   ] = useState<CarsDataT>({
     cars: [],
-    totalCarsCount: 0, 
-	  totalPageCount: 0, 
+    totalCarsCount: 0,
+	  totalPageCount: 0,
   });
 
   const [
@@ -45,19 +43,8 @@ const CarsProvider = ({ children }: PropsT) => {
     return unlisten;
   }, [history]);
 
-  const providerValues = useMemo(() => {
-    return {
-      loading, 
-      filters,
-      setLoading,
-      setFilters,
-      carsData,
-      setCarsData,
-      page,
-      setPage,
-    };
-  }, [
-    loading, 
+  const providerValues = {
+    loading,
     filters,
     setLoading,
     setFilters,
@@ -65,7 +52,7 @@ const CarsProvider = ({ children }: PropsT) => {
     setCarsData,
     page,
     setPage,
-  ]);
+  };
 
   return (
     <Provider value={providerValues}>
